@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: gradou
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb-use-native-aio=0
+    volumes:
+    - ./docker_mysql/data:/var/lib/mysql
+    ports:
+    - 3306:3306
